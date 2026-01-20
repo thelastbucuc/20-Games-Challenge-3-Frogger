@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnur81rrqova0"]
+
+[ext_resource type="Script" uid="uid://stah23unjo2x" path="res://Scenes/Frog/Frog.gd" id="1_am5px"]
+[ext_resource type="Texture2D" uid="uid://ctal8h4n54wj4" path="res://assets/Frog.png" id="1_chjnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am5px"]
+size = Vector2(30, 30)
+
+[node name="Frog" type="Area2D"]
+rotation = -1.5707964
+collision_mask = 4
+script = ExtResource("1_am5px")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_chjnv")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_am5px")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
