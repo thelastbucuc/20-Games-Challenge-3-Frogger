@@ -11,6 +11,7 @@ const START_POS: Vector2 = Vector2(180, 580)
 var _on_water: bool = false
 var _logs_touched: int = 0 
 var _target_position: Vector2
+var current_log = null
 
 
 func _input(event: InputEvent) -> void:
@@ -43,6 +44,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if current_log != null:
+		global_position.x += current_log.speed * current_log.direction * delta
 	check_death()
 
 
@@ -56,18 +59,13 @@ func die() -> void:
 	_target_position = position
 
 
-func reparent_to_object(new_parent):
-	var old_global_position = global_position
-	reparent(new_parent, true)
-	global_position = old_global_position
-
-
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group(WaterDetect.GROUP_NAME):
 		_on_water = true
 	if area.is_in_group(Log.GROUP_NAME):
 		_logs_touched += 1
-		call_deferred("reparent_to_object", area)
+		current_log = area
+		print("Kütüğün üzerine binildi: ", area.name)
 
 
 func _on_area_exited(area: Area2D) -> void:
@@ -75,5 +73,6 @@ func _on_area_exited(area: Area2D) -> void:
 		_on_water = false
 	if area.is_in_group(Log.GROUP_NAME):
 		_logs_touched -= 1
-		if _logs_touched == 0:
-			call_deferred("reparent_to_object", get_tree().current_scene)
+		if area == current_log:
+			current_log = null
+			print("Kütükten inildi.")
