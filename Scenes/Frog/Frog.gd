@@ -58,8 +58,7 @@ func die() -> void:
 
 func reparent_to_object(new_parent):
 	var old_global_position = global_position
-	get_parent().remove_child(self)
-	new_parent.add_child(self)
+	reparent(new_parent, true)
 	global_position = old_global_position
 
 
@@ -68,7 +67,7 @@ func _on_area_entered(area: Area2D) -> void:
 		_on_water = true
 	if area.is_in_group(Log.GROUP_NAME):
 		_logs_touched += 1
-		reparent_to_object.call_deferred(area)
+		call_deferred("reparent_to_object", area)
 
 
 func _on_area_exited(area: Area2D) -> void:
@@ -77,4 +76,4 @@ func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group(Log.GROUP_NAME):
 		_logs_touched -= 1
 		if _logs_touched == 0:
-			reparent_to_object.call_deferred(get_tree().current_scene)
+			call_deferred("reparent_to_object", get_tree().current_scene)
