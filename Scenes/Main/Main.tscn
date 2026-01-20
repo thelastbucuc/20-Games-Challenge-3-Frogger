@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://trh8rykvnav3" path="res://assets/Tiles.png" id="1_p8rbg"]
 [ext_resource type="PackedScene" uid="uid://cnur81rrqova0" path="res://Scenes/Frog/Frog.tscn" id="2_qtv3y"]
 [ext_resource type="PackedScene" uid="uid://7d0nbek06h0t" path="res://Scenes/WaterDetect/WaterDetect.tscn" id="4_i3fi7"]
-[ext_resource type="PackedScene" uid="uid://dhqsq856a6gyo" path="res://Scenes/Log/Log.tscn" id="5_o8wgc"]
+[ext_resource type="PackedScene" uid="uid://bw6y3ddsbn2jn" path="res://Scenes/Lillypad/Lillypad.tscn" id="5_o8wgc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtv3y"]
 texture = ExtResource("1_p8rbg")
@@ -28,8 +28,18 @@ tile_set = SubResource("TileSet_cmk6n")
 position = Vector2(0, 80)
 scale = Vector2(18, 12)
 
-[node name="Log" parent="." instance=ExtResource("5_o8wgc")]
-position = Vector2(7, 300)
+[node name="Logs" type="Node2D" parent="."]
+
+[node name="Cars" type="Node2D" parent="."]
+
+[node name="CarTimer" type="Timer" parent="Cars"]
+wait_time = 2.0
+autostart = true
+
+[node name="Lillypad" parent="." instance=ExtResource("5_o8wgc")]
+position = Vector2(20, 300)
 
 [node name="Frog" parent="." instance=ExtResource("2_qtv3y")]
 position = Vector2(180, 580)
+
+[connection signal="timeout" from="Cars/CarTimer" to="." method="_on_car_timer_timeout"]

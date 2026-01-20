@@ -8,6 +8,7 @@ size = Vector2(40, 40)
 
 [node name="Lillypad" type="Area2D"]
 collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_qyto3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

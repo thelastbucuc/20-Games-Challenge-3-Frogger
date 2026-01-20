@@ -1,7 +1,7 @@
 extends Area2D
 
 
-class_name Log
+class_name Turtle
 
 
 @export var speed = 50.0
@@ -10,6 +10,7 @@ class_name Log
 
 const GROUP_NAME: String = "logs"
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x += delta * speed * direction
+	if direction > 0:
+		sprite_2d.flip_h = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

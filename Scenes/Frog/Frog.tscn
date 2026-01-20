@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ctal8h4n54wj4" path="res://assets/Frog.png" id="1_chjnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_am5px"]
-size = Vector2(30, 30)
 
 [node name="Frog" type="Area2D"]
 rotation = -1.5707964
-collision_mask = 4
+collision_mask = 14
 script = ExtResource("1_am5px")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
