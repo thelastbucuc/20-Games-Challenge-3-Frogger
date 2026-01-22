@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=4 uid="uid://cerxn7hq4mfqi"]
+[gd_scene load_steps=12 format=4 uid="uid://cerxn7hq4mfqi"]
 
 [ext_resource type="Script" uid="uid://b81qe1rxt0snp" path="res://Scenes/Main/Main.gd" id="1_cmk6n"]
 [ext_resource type="Texture2D" uid="uid://trh8rykvnav3" path="res://assets/Tiles.png" id="1_p8rbg"]
 [ext_resource type="PackedScene" uid="uid://cnur81rrqova0" path="res://Scenes/Frog/Frog.tscn" id="2_qtv3y"]
 [ext_resource type="PackedScene" uid="uid://7d0nbek06h0t" path="res://Scenes/WaterDetect/WaterDetect.tscn" id="4_i3fi7"]
 [ext_resource type="PackedScene" uid="uid://bw6y3ddsbn2jn" path="res://Scenes/Lillypad/Lillypad.tscn" id="5_o8wgc"]
+[ext_resource type="PackedScene" uid="uid://b4f3qufu1sllj" path="res://Scenes/Spawner/Spawner.tscn" id="6_aw1lf"]
+[ext_resource type="PackedScene" uid="uid://bovgf46dklj6y" path="res://Scenes/Cars/Car.tscn" id="7_5s61s"]
+[ext_resource type="PackedScene" uid="uid://dhqsq856a6gyo" path="res://Scenes/Log/Log.tscn" id="7_aw1lf"]
+[ext_resource type="PackedScene" uid="uid://hlefnqucb4lm" path="res://Scenes/GameUi/GameUi.tscn" id="9_7npjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtv3y"]
 texture = ExtResource("1_p8rbg")
@@ -30,16 +34,117 @@ scale = Vector2(18, 12)
 
 [node name="Logs" type="Node2D" parent="."]
 
+[node name="Spawner" parent="Logs" instance=ExtResource("6_aw1lf")]
+position = Vector2(-107, 140)
+scene = ExtResource("7_aw1lf")
+direction = 1
+cooldown = 5.0
+speed = 60.0
+
+[node name="Spawner2" parent="Logs" instance=ExtResource("6_aw1lf")]
+position = Vector2(451, 180)
+scene = ExtResource("7_aw1lf")
+direction = -1
+cooldown = 4.5
+speed = 50.0
+
+[node name="Spawner3" parent="Logs" instance=ExtResource("6_aw1lf")]
+position = Vector2(-104, 220)
+scene = ExtResource("7_aw1lf")
+direction = 1
+cooldown = 4.5
+speed = 50.0
+
+[node name="Spawner4" parent="Logs" instance=ExtResource("6_aw1lf")]
+position = Vector2(450, 260)
+scene = ExtResource("7_aw1lf")
+direction = -1
+cooldown = 5.5
+speed = 55.0
+
+[node name="Spawner5" parent="Logs" instance=ExtResource("6_aw1lf")]
+position = Vector2(-106, 300)
+scene = ExtResource("7_aw1lf")
+direction = 1
+cooldown = 5.0
+speed = 60.0
+
 [node name="Cars" type="Node2D" parent="."]
 
-[node name="CarTimer" type="Timer" parent="Cars"]
-wait_time = 2.0
-autostart = true
+[node name="Spawner6" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(-44, 379)
+scene = ExtResource("7_5s61s")
+direction = 1
+cooldown = 5.0
+speed = 60.0
 
-[node name="Lillypad" parent="." instance=ExtResource("5_o8wgc")]
-position = Vector2(20, 300)
+[node name="Spawner11" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(-190, 379)
+scene = ExtResource("7_5s61s")
+direction = 1
+cooldown = 5.0
+speed = 55.0
+
+[node name="Spawner7" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(-88, 420)
+scene = ExtResource("7_5s61s")
+direction = 1
+cooldown = 4.0
+speed = 55.0
+
+[node name="Spawner8" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(429, 460)
+scene = ExtResource("7_5s61s")
+direction = -1
+cooldown = 4.0
+speed = 50.0
+
+[node name="Spawner9" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(-68, 500)
+scene = ExtResource("7_5s61s")
+direction = 1
+cooldown = 4.0
+speed = 50.0
+
+[node name="Spawner10" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(411, 540)
+scene = ExtResource("7_5s61s")
+direction = -1
+cooldown = 4.5
+speed = 60.0
+
+[node name="Spawner12" parent="Cars" instance=ExtResource("6_aw1lf")]
+position = Vector2(504, 540)
+scene = ExtResource("7_5s61s")
+direction = -1
+cooldown = 4.5
+speed = 60.0
+
+[node name="Car" parent="Cars" instance=ExtResource("7_5s61s")]
+position = Vector2(220, 540)
+direction = -1
+
+[node name="Lillypads" type="Node2D" parent="."]
+position = Vector2(0, 100)
+
+[node name="Lillypad" parent="Lillypads" instance=ExtResource("5_o8wgc")]
+position = Vector2(20, 0)
+
+[node name="Lillypad2" parent="Lillypads" instance=ExtResource("5_o8wgc")]
+position = Vector2(100, 0)
+
+[node name="Lillypad3" parent="Lillypads" instance=ExtResource("5_o8wgc")]
+position = Vector2(180, 0)
+
+[node name="Lillypad4" parent="Lillypads" instance=ExtResource("5_o8wgc")]
+position = Vector2(260, 0)
+
+[node name="Lillypad5" parent="Lillypads" instance=ExtResource("5_o8wgc")]
+position = Vector2(340, 0)
 
 [node name="Frog" parent="." instance=ExtResource("2_qtv3y")]
 position = Vector2(180, 580)
 
-[connection signal="timeout" from="Cars/CarTimer" to="." method="_on_car_timer_timeout"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("9_7npjy")]

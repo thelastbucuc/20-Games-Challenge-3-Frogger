@@ -22,7 +22,3 @@ func _process(delta: float) -> void:
 	position.x += delta * speed * direction
 	if direction > 0:
 		sprite_2d.flip_h = true
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	call_deferred("queue_free")

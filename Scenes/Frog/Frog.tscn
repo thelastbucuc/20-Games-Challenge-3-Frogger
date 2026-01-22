@@ -11,6 +11,7 @@ collision_mask = 14
 script = ExtResource("1_am5px")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
 texture = ExtResource("1_chjnv")
 hframes = 2
 
