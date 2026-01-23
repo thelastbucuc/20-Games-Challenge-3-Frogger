@@ -10,6 +10,7 @@ class_name Turtle
 
 const GROUP_NAME: String = "logs"
 
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.

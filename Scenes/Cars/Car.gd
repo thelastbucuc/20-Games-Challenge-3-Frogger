@@ -16,7 +16,6 @@ const GROUP_NAME: String = "cars"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	set_random_speed_between(60, 100)
 	set_random_color()
 	add_to_group(GROUP_NAME)
 
@@ -29,11 +28,6 @@ func set_random_color() -> void:
 		sprite_2d.frame = 2
 	if i == 3:
 		sprite_2d.frame = 4
-
-
-func set_random_speed_between(v1: float, v2: float) -> void:
-	speed = randf_range(v1, v2)
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

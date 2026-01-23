@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Spawner
 
+
 @export var scene: PackedScene
 @export var direction: int
 @export var cooldown: float

@@ -90,39 +90,42 @@ position = Vector2(-88, 420)
 scene = ExtResource("7_5s61s")
 direction = 1
 cooldown = 4.0
-speed = 55.0
+speed = 60.0
 
 [node name="Spawner8" parent="Cars" instance=ExtResource("6_aw1lf")]
 position = Vector2(429, 460)
 scene = ExtResource("7_5s61s")
 direction = -1
 cooldown = 4.0
-speed = 50.0
+speed = 100.0
 
 [node name="Spawner9" parent="Cars" instance=ExtResource("6_aw1lf")]
-position = Vector2(-68, 500)
+position = Vector2(-28, 500)
 scene = ExtResource("7_5s61s")
 direction = 1
 cooldown = 4.0
 speed = 50.0
 
 [node name="Spawner10" parent="Cars" instance=ExtResource("6_aw1lf")]
-position = Vector2(411, 540)
+position = Vector2(431, 540)
 scene = ExtResource("7_5s61s")
 direction = -1
 cooldown = 4.5
-speed = 60.0
+speed = 65.0
 
 [node name="Spawner12" parent="Cars" instance=ExtResource("6_aw1lf")]
-position = Vector2(504, 540)
+position = Vector2(543, 540)
 scene = ExtResource("7_5s61s")
 direction = -1
 cooldown = 4.5
-speed = 60.0
+speed = 65.0
 
 [node name="Car" parent="Cars" instance=ExtResource("7_5s61s")]
 position = Vector2(220, 540)
 direction = -1
+
+[node name="Car2" parent="Cars" instance=ExtResource("7_5s61s")]
+position = Vector2(185, 420)
 
 [node name="Lillypads" type="Node2D" parent="."]
 position = Vector2(0, 100)

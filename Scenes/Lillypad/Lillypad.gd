@@ -15,8 +15,9 @@ func _ready() -> void:
 	add_to_group(GROUP_NAME)
 
 
-func _on_area_entered(area: Area2D) -> void:
-	print("lillypad")
+func _on_area_entered(_area: Area2D) -> void:
 	if full.visible == false:
 		full.show()
 		SignalHub.emit_on_scored()
+	else:
+		SignalHub.emit_on_died()

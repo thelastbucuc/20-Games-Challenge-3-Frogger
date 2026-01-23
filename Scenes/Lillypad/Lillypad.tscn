@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ctal8h4n54wj4" path="res://assets/Frog.png" id="3_afm5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyto3"]
-size = Vector2(60, 40)
+size = Vector2(59, 40)
 
 [node name="Lillypad" type="Area2D"]
 collision_layer = 8
