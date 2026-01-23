@@ -41,7 +41,3 @@ func _process(delta: float) -> void:
 	position.x += delta * speed * direction
 	if direction > 0:
 		sprite_2d.flip_h = true
-
-
-func _on_area_entered(area: Area2D) -> void:
-	print("car")

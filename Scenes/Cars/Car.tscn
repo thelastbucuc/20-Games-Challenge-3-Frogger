@@ -8,7 +8,8 @@
 size = Vector2(60, 34)
 
 [node name="Car" type="Area2D"]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_kg5e0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,5 +23,3 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_j38fa")
 
 [node name="LifeTimer" parent="." instance=ExtResource("3_ekoqi")]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

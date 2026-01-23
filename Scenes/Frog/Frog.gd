@@ -14,7 +14,7 @@ const OFFSET: int = 20
 var _on_water: bool = false
 var _logs_touched: int = 0
 var _current_log = null
-var _is_died: bool = false
+var _is_dead: bool = false
 
 
 func _input(event: InputEvent) -> void:
@@ -44,33 +44,38 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if _current_log != null:
 		global_position.x += _current_log.speed * _current_log.direction * delta
-	check_death()
 
 
-func check_death() -> void:
-	if _on_water == true and _logs_touched <= 0:
-		_is_died = true
+func on_died():
+	if _is_dead == true: return
+	_is_dead = true
+	call_deferred("queue_free")
+	await get_tree().create_timer(0.5).timeout
+	_is_dead = false
 
 
 func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group(Car.GROUP_NAME):
+		SignalHub.emit_on_died()
 	if area.is_in_group(Lillypad.GROUP_NAME):
 		_on_water = false
+	if area.is_in_group(Log.GROUP_NAME):
+		_logs_touched += 1
+		print("Log entered! ", _logs_touched)
+		_current_log = area
 	if area.is_in_group(WaterDetect.GROUP_NAME):
 		_on_water = true
-	#if area.is_in_group(Car.GROUP_NAME):
-	if area.is_in_group("logs"):
-		_logs_touched += 1
-		_current_log = area
-
-
-func on_died() -> void:
-	call_deferred("queue_free")
+		print("Water detected! ", _on_water)
+		if _on_water == true and _logs_touched <= 0:
+			print("Died!")
+			SignalHub.emit_on_died()
 
 
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group(WaterDetect.GROUP_NAME):
 		_on_water = false
-	if area.is_in_group("logs"):
+	if area.is_in_group(Log.GROUP_NAME):
 		_logs_touched -= 1
+		print("Log exited!", _logs_touched)
 		if area == _current_log:
 			_current_log = null

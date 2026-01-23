@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dsvgo8bvgdj58" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="3_y4bwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfnx3"]
-size = Vector2(160, 35)
+size = Vector2(160, 40)
 
 [node name="Log" type="Area2D"]
 collision_layer = 4
@@ -19,5 +19,3 @@ texture = ExtResource("1_kj2bq")
 shape = SubResource("RectangleShape2D_cfnx3")
 
 [node name="LifeTimer" parent="." instance=ExtResource("3_y4bwx")]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
