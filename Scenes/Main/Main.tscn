@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://cerxn7hq4mfqi"]
+[gd_scene load_steps=13 format=4 uid="uid://cerxn7hq4mfqi"]
 
 [ext_resource type="Script" uid="uid://b81qe1rxt0snp" path="res://Scenes/Main/Main.gd" id="1_cmk6n"]
 [ext_resource type="Texture2D" uid="uid://trh8rykvnav3" path="res://assets/Tiles.png" id="1_p8rbg"]
 [ext_resource type="PackedScene" uid="uid://cnur81rrqova0" path="res://Scenes/Frog/Frog.tscn" id="2_qtv3y"]
 [ext_resource type="PackedScene" uid="uid://7d0nbek06h0t" path="res://Scenes/WaterDetect/WaterDetect.tscn" id="4_i3fi7"]
 [ext_resource type="PackedScene" uid="uid://bw6y3ddsbn2jn" path="res://Scenes/Lillypad/Lillypad.tscn" id="5_o8wgc"]
+[ext_resource type="PackedScene" uid="uid://dla3o2pvxbrf6" path="res://Scenes/Turtle/Turtle.tscn" id="6_4vhfm"]
 [ext_resource type="PackedScene" uid="uid://b4f3qufu1sllj" path="res://Scenes/Spawner/Spawner.tscn" id="6_aw1lf"]
 [ext_resource type="PackedScene" uid="uid://bovgf46dklj6y" path="res://Scenes/Cars/Car.tscn" id="7_5s61s"]
 [ext_resource type="PackedScene" uid="uid://dhqsq856a6gyo" path="res://Scenes/Log/Log.tscn" id="7_aw1lf"]
@@ -50,10 +51,10 @@ speed = 50.0
 
 [node name="Spawner3" parent="Logs" instance=ExtResource("6_aw1lf")]
 position = Vector2(-104, 220)
-scene = ExtResource("7_aw1lf")
+scene = ExtResource("6_4vhfm")
 direction = 1
 cooldown = 4.5
-speed = 50.0
+speed = 40.0
 
 [node name="Spawner4" parent="Logs" instance=ExtResource("6_aw1lf")]
 position = Vector2(450, 260)

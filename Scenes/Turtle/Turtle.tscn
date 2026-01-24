@@ -5,16 +5,39 @@
 [ext_resource type="PackedScene" uid="uid://dsvgo8bvgdj58" path="res://Scenes/LifeTimer/LifeTimer.tscn" id="3_313a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y1nx"]
-size = Vector2(40, 40)
+size = Vector2(80, 40)
 
 [node name="Turtle" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_a7oeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7y1nx")
 hframes = 2
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(40, 0)
+texture = ExtResource("1_7y1nx")
+hframes = 2
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_7y1nx")
 
 [node name="LifeTimer" parent="." instance=ExtResource("3_313a6")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="DeathBox" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_7y1nx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="DeathBox" to="." method="_on_death_box_area_entered"]
