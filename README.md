@@ -14,7 +14,7 @@ This project was more complex than it looks. The main goal was to solve the "Mov
 * **Language:** GDScript
 * **Approach:** Signal-based collision handling and `_physics_process` for stable movement synchronization.
 
-## 🎮 Controls
+## Controls
 * **Arrow Keys / WASD:** Leap in any direction.
 * **The Goal:** Reach all the empty lilypads at the top without getting flattened or taking a swim!
 
